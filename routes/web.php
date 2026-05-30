@@ -1,19 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,3 +21,6 @@ Route::middleware('auth')->group(function () {
 Route::get('/products', [ProductController::class, 'index']);
 
 require __DIR__.'/auth.php';
+
+require base_path('app/Modules/Students/Routes/web.php');
+require base_path('app/Modules/Courses/Routes/web.php');
